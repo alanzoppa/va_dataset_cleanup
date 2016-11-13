@@ -76,7 +76,7 @@ class VaDatum < OpenStruct
     _removable_street_address_patterns.each do |r|
       addr.gsub!(r, "")
     end
-    addr.strip!
+    addr.strip
   end
 
   def street_address_parsed

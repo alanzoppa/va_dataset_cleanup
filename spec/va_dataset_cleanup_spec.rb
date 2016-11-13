@@ -91,19 +91,14 @@ describe VaDatasetCleanup do
   end
 
   it "should refine out known data points to va quirks" do
-    #expect(@va.data[0].street_address_only).to eql(
-      #"1000 W WASHINGTON BLVD"
-    #)
-    @va.cleaned_data.each do |datum|
-      #p datum.searchable
-      p datum.street_address_parsed
-    end
+    expect(@va.data[0].street_address_only).to eql(
+      "1000 W WASHINGTON BLVD"
+    )
   end
 
-  it 'should decide on an address parsing strategy' do
-    out = @va.data[0].street_address_strategies
-    binding.pry
-  end
+  #it 'should decide on an address parsing strategy' do
+    #out = @va.data[0].street_address_strategies
+  #end
 
 #StreetAddress::US.parse("1600 Pennsylvania Ave, Washington, DC, 20500")
 
