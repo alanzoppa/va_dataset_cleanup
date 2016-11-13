@@ -1,3 +1,3 @@
-module VaDatasetCleanup
+class VaDatasetCleanup
   VERSION = "0.1.0"
 end
