@@ -59,18 +59,6 @@ class VaDatum < OpenStruct
     @searchable
   end
 
-  def parsed_address
-    StreetAddress::US.parse(cleaned_address)
-  end
-
-  def parsed_name_and_address
-    StreetAddress::US.parse(self['Condo Name (ID)'] + ' ' + cleaned_address)
-  end
-
-  def street_address
-    binding.pry
-  end 
-
   def _removable_street_address_patterns
     d = details_from_zip
     [
@@ -79,13 +67,27 @@ class VaDatum < OpenStruct
     ]
   end
 
+  def cleaned_name
+    self['Condo Name (ID)'].gsub(/ \(\d{5,7}\)/, '')
+  end
+
   def street_address_only
     addr = cleaned_address
-    #binding.pry
     _removable_street_address_patterns.each do |r|
       addr.gsub!(r, "")
     end
-    addr.strip
+    addr.strip!
+  end
+
+  def street_address_parsed
+    parsed = [ street_address_only,
+      cleaned_name, 
+      "#{cleaned_address} #{street_address_only}"
+    ].map {|addr|
+      StreetAddress::US.parse(addr)
+    }.compact
+    parsed = parsed.sort_by {|a| a.street.length}
+    return parsed[0]
   end
 
   def cleaned_address
@@ -144,6 +146,10 @@ class VaDatum < OpenStruct
     @details_from_zip
   end
 
+  def resolvable?
+    !details_from_zip.nil?
+  end
+
 end
 
 class VaDatasetCleanup
@@ -169,6 +175,13 @@ class VaDatasetCleanup
       @data << VaDatum.new(datum)
     end
     @zip_validator = $ZIP_VALIDATOR
+  end
+
+  def cleaned_data
+    unless defined? @cleaned_data
+      @cleaned_data = @data.select {|d| d.resolvable?}
+    end
+    @cleaned_data
   end
 
   def smartystreets_url(query={})
