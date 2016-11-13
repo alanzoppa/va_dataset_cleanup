@@ -94,7 +94,12 @@ class VaDatum < OpenStruct
   end
 
   def details_from_zip(zip_validator)
-    zip_validator.find_by_zip(extracted_zip(zip_validator))
+    unless defined? @details_from_zip
+      @details_from_zip = zip_validator.find_by_zip(
+        extracted_zip(zip_validator)
+      )
+    end
+    @details_from_zip
   end
 end
 
