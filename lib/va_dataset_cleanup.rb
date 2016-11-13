@@ -59,6 +59,35 @@ class VaDatum < OpenStruct
     @searchable
   end
 
+  def parsed_address
+    StreetAddress::US.parse(cleaned_address)
+  end
+
+  def parsed_name_and_address
+    StreetAddress::US.parse(self['Condo Name (ID)'] + ' ' + cleaned_address)
+  end
+
+  def street_address
+    binding.pry
+  end 
+
+  def _removable_street_address_patterns
+    d = details_from_zip
+    [
+      /#{d['city']} #{d['state_cd']} #{d['zip']}.-..0000/i,
+      /#{d['city']} #{d['state_cd']} #{d['zip']} #{d['county']}/i
+    ]
+  end
+
+  def street_address_only
+    addr = cleaned_address
+    #binding.pry
+    _removable_street_address_patterns.each do |r|
+      addr.gsub!(r, "")
+    end
+    addr.strip
+  end
+
   def cleaned_address
     # VA-specific data entry quirk
     address = self['Address']
@@ -115,10 +144,6 @@ class VaDatum < OpenStruct
     @details_from_zip
   end
 
-  def street_address_details
-    StreetAddress::US.parse(searchable)
-  end
-
 end
 
 class VaDatasetCleanup
@@ -135,6 +160,12 @@ class VaDatasetCleanup
       end
       datum = @header.zip(row).to_h
       datum.delete(nil)
+      datum.keys.each do |key|
+        datum[key].tr!(" ", " ")
+        unless datum[key].nil?
+          datum[key].strip!
+        end
+      end
       @data << VaDatum.new(datum)
     end
     @zip_validator = $ZIP_VALIDATOR

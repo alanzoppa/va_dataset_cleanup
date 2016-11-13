@@ -85,8 +85,20 @@ describe VaDatasetCleanup do
   end
 
   it 'should fix va-specific weirdness' do
-    p @va.data[0].cleaned_address
+    expect(@va.data[0].cleaned_address).to eql(
+      "1000 W WASHINGTON BLVD CHICAGO IL 60607 COOK"
+    )
   end
+
+  it "should refine out known data points to va quirks" do
+    expect(@va.data[0].street_address_only).to eql(
+      "1000 W WASHINGTON BLVD"
+    )
+  end
+
+  #it 'should decide on an address parsing strategy' do
+    #p @va.data[0].street_address
+  #end
 
 #StreetAddress::US.parse("1600 Pennsylvania Ave, Washington, DC, 20500")
 
