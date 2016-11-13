@@ -63,12 +63,20 @@ class VaDatum < OpenStruct
     d = details_from_zip
     [
       /#{d['city']} #{d['state_cd']} #{d['zip']}.-..0000/i,
-      /#{d['city']} #{d['state_cd']} #{d['zip']} #{d['county']}/i
+      /#{d['city']} #{d['state_cd']} #{d['zip']} #{d['county']}/i,
+      / USA\s*$/i
     ]
   end
 
   def cleaned_name
-    self['Condo Name (ID)'].gsub(/ \(\d{5,7}\)/, '')
+    name = self['Condo Name (ID)']
+    [
+      / \(\d{5,7}\)/,
+      / \(#{details_from_zip['state_cd']}\d{3,5}\)/
+    ].each do |pattern|
+      name.gsub! pattern, ''
+    end
+    name
   end
 
   def street_address_only
@@ -79,23 +87,29 @@ class VaDatum < OpenStruct
     addr.strip
   end
 
-  def street_address_parsed
-    parsed = [ street_address_only,
-      cleaned_name, 
-      "#{cleaned_address} #{street_address_only}"
-    ].map {|addr|
-      StreetAddress::US.parse(addr)
-    }.compact
-    parsed = parsed.sort_by {|a| a.street.length}
-    return parsed[0]
+  def street_address_without_county
+    cleaned_address.gsub(
+      / #{details_from_zip['county']}/i,
+      ''
+    )
+  end
+
+  def address_from_name
+    name = cleaned_name
+    [
+      / condo.*/i
+    ].each do |pattern|
+      name.gsub! pattern, ''
+    end
+    name
   end
 
   def cleaned_address
     # VA-specific data entry quirk
     address = self['Address']
     pattern = /(\w)(#{Regexp.escape(extracted_city)})\b/i
-    address.gsub! pattern, '\1 \2'
-    address
+    address.gsub!(pattern, '\1 \2')
+    address.strip
   end
 
   def extracted_zip
@@ -150,6 +164,62 @@ class VaDatum < OpenStruct
     !details_from_zip.nil?
   end
 
+  def street_address_strategies
+    [ street_address_only,
+      street_address_without_county,
+      address_from_name,
+      cleaned_name,
+      cleaned_address,
+      cleaned_name+' '+cleaned_address,
+    ].map do |address|
+      StreetAddress::US.parse_informal_address(address)
+    end.compact
+  end
+
+  def best_strategy_street_address
+    unless defined? @best_strategy_street_address
+      @best_strategy_street_address = street_address_strategies.find do |address|
+        !address.number.nil? && !address.street.nil?
+      end
+    end
+    @best_strategy_street_address
+  end
+
+  def reconstructed_street_address
+    if best_strategy_street_address.nil?
+      #binding.pry
+      return "---failed: #{cleaned_name} #{cleaned_address}"
+      #return strategies
+    else
+      a = best_strategy_street_address
+      out = ""
+      out << "#{a.number} "
+      if a.prefix
+        out << "#{a.prefix} "
+      end
+      out << "#{a.street} "
+      if a.street_type
+        out << "#{a.street_type} "
+      end
+      return out.strip
+    end
+  end
+
+  def verifiable_attrs
+    return nil unless resolvable?
+    out = {}
+    [
+      ['zipcode', 'zip'],
+      ['city', 'city'],
+      ['state', 'state'],
+    ].each do |api_key, key|
+      out[api_key] = details_from_zip[key] unless details_from_zip[key].nil?
+    end
+    out['street'] = street_address_only
+    out['addressee'] = cleaned_name
+    out
+  end
+
 end
 
 class VaDatasetCleanup
@@ -169,7 +239,7 @@ class VaDatasetCleanup
       datum.keys.each do |key|
         datum[key].tr!(" ", " ")
         unless datum[key].nil?
-          datum[key].strip!
+          datum[key] = datum[key].strip
         end
       end
       @data << VaDatum.new(datum)

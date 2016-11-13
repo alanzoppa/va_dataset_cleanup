@@ -96,6 +96,56 @@ describe VaDatasetCleanup do
     )
   end
 
+  #it 'should create an API-ready hash' do
+    #expect(@va.data[0].verifiable_attrs).to eql(
+      #{
+        #"zipcode"=>"60607",
+        #"city"=>"Chicago",
+        #"state"=>"Illinois",
+        #"street"=>"1000 WEST WASHINGTON LOFTS 1000 W WASHINGTON BLVD CHICAGO IL 60607 COOK",
+      #}
+    #)
+  #end
+
+  it 'should return a version of the address without the county' do
+    expect(@va.data[3].street_address_without_county).to eql(
+      "1015 W JACKSON BLVD CHICAGO IL 60607"
+    )
+  end
+
+  it 'should try to guess the street address from the condo name' do
+    expect(@va.data[1].address_from_name).to eql "1001 MADISON"
+  end
+
+
+
+#1015 W. JACKSON (002496),1015 W JACKSON BLVDCHICAGO IL 60607 COOK ,Accepted Without Conditions,Unavailable,05/02/2016,05/04/2016,559791
+
+  it 'should figure out the street address' do
+    @va.data.each do |datum|
+      if datum.resolvable?
+        puts datum.reconstructed_street_address
+      end
+    end
+
+    #@va.data[-1].best_strategy_street_address
+
+  end
+
+  #it 'should create an API url' do
+    #(0..10).each do |i|
+      #puts @va.smartystreets_url(@va.data[i].verifiable_attrs)
+    #end
+  #end
+
+  #it "should preview some API input" do
+    #@va.data.each do |datum|
+      #if datum.resolvable?
+        #print datum.verifiable_attrs.to_yaml
+      #end
+    #end
+  #end
+
   #it 'should decide on an address parsing strategy' do
     #out = @va.data[0].street_address_strategies
   #end
