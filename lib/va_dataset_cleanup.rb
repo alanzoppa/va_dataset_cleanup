@@ -72,8 +72,9 @@ class VaDatum < OpenStruct
           found['zip']
         end
       end
-      refined_candidates = refined_candidates.compact
+      refined_candidates = refined_candidates.compact.uniq
       if refined_candidates.length != 1
+        binding.pry
         raise "Can't refine candidate zips"
       end
     end

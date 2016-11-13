@@ -57,6 +57,16 @@ describe VaDatasetCleanup do
     expect(datum.extracted_zip(@va.zip_validator)).to eql "60607"
   end
 
+  it 'should be able to deal with multiple occurences of a zip' do
+    # Fails because 01008 is not in Illinois
+    datum = VaDatum.new(
+      {'Condo Name (ID)' => "foo bar 60607", 'Address' => "baz 60607 IL stuff"}
+    )
+    expect(datum.extracted_zip(@va.zip_validator)).to eql "60607"
+  end
+
+
+
   it 'should be able to find zip detail from the reference data' do
     expect(@va.data[0].details_from_zip(@va.zip_validator)).to eql(
       {
@@ -69,6 +79,12 @@ describe VaDatasetCleanup do
         "longitude"=>"-87.6578"
       }
     )
+  end
+
+  it "should work on the whole set" do
+    expect(
+      @va.data.map {|d| d.details_from_zip(@va.zip_validator)}.length
+    ).to eql 939
   end
 
 end
