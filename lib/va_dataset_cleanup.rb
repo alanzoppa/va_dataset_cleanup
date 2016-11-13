@@ -4,6 +4,7 @@ require 'google_places'
 require 'uri'
 require 'open-uri'
 require 'ostruct'
+require 'street_address'
 
 class ZipValidator
   attr_accessor :data
@@ -48,7 +49,7 @@ class ZipValidator
 
 end
 
-
+$ZIP_VALIDATOR = ZipValidator.new
 
 class VaDatum < OpenStruct
   def searchable
@@ -58,14 +59,22 @@ class VaDatum < OpenStruct
     @searchable
   end
 
-  def extracted_zip(zip_validator)
+  def cleaned_address
+    # VA-specific data entry quirk
+    address = self['Address']
+    pattern = /(\w)(#{Regexp.escape(extracted_city)})\b/i
+    address.gsub! pattern, '\1 \2'
+    address
+  end
+
+  def extracted_zip
     candidates = searchable.scan(/\b\d{5}\b/)
     if candidates.length == 0
       raise "No candidate zips found"
     elsif candidates.length > 1
-      state = extracted_state(zip_validator)
+      state = extracted_state
       refined_candidates = candidates.map do |candidate|
-        found = zip_validator.data.find do |entry|
+        found = $ZIP_VALIDATOR.data.find do |entry|
           entry['zip'] == candidate && entry['state_cd'] == state
         end
         unless found.nil?
@@ -81,8 +90,8 @@ class VaDatum < OpenStruct
     candidates[0]
   end
 
-  def extracted_state(zip_validator)
-    identified_states = zip_validator.states.map do |state|
+  def extracted_state
+    identified_states = $ZIP_VALIDATOR.states.map do |state|
       searchable.scan /\b#{state}\b/
     end.flatten
     if identified_states.length > 1
@@ -93,18 +102,27 @@ class VaDatum < OpenStruct
     return identified_states[0]
   end
 
-  def details_from_zip(zip_validator)
+  def extracted_city
+    details_from_zip['city']
+  end
+
+  def details_from_zip
     unless defined? @details_from_zip
-      @details_from_zip = zip_validator.find_by_zip(
-        extracted_zip(zip_validator)
+      @details_from_zip = $ZIP_VALIDATOR.find_by_zip(
+        extracted_zip
       )
     end
     @details_from_zip
   end
+
+  def street_address_details
+    StreetAddress::US.parse(searchable)
+  end
+
 end
 
 class VaDatasetCleanup
-  attr_accessor :data, :zip_validator
+  attr_accessor :data
 
 
   def initialize(filepath, smartystreets_params)
@@ -119,7 +137,7 @@ class VaDatasetCleanup
       datum.delete(nil)
       @data << VaDatum.new(datum)
     end
-    @zip_validator = ZipValidator.new
+    @zip_validator = $ZIP_VALIDATOR
   end
 
   def smartystreets_url(query={})

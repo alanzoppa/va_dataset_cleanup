@@ -35,40 +35,39 @@ describe VaDatasetCleanup do
       "latitude"=>"41.9019",
       "longitude"=>"-87.6778",
     }
-    actual = @va.zip_validator.find_by_zip(60622)
+    actual = $ZIP_VALIDATOR.find_by_zip(60622)
     expected.keys.each do |key|
       expect(expected[key]).to eql actual[key]
     end
   end
 
   it 'should be able to identify a state' do
-    expect(@va.data[0].extracted_state(@va.zip_validator)).to eql "IL"
+    expect(@va.data[0].extracted_state).to eql "IL"
   end
 
   it 'should be able to identify a zip' do
-    expect(@va.data[0].extracted_zip(@va.zip_validator)).to eql "60607"
+    expect(@va.data[0].extracted_zip).to eql "60607"
   end
 
   it 'should be able to reconcile multiple zips' do
-    # Fails because 01008 is not in Illinois
+    # 01008 is not in Illinois
     datum = VaDatum.new(
       {'Condo Name (ID)' => "foo bar 60607", 'Address' => "baz 01008 IL stuff"}
     )
-    expect(datum.extracted_zip(@va.zip_validator)).to eql "60607"
+    expect(datum.extracted_zip).to eql "60607"
   end
 
   it 'should be able to deal with multiple occurences of a zip' do
-    # Fails because 01008 is not in Illinois
     datum = VaDatum.new(
       {'Condo Name (ID)' => "foo bar 60607", 'Address' => "baz 60607 IL stuff"}
     )
-    expect(datum.extracted_zip(@va.zip_validator)).to eql "60607"
+    expect(datum.extracted_zip).to eql "60607"
   end
 
 
 
   it 'should be able to find zip detail from the reference data' do
-    expect(@va.data[0].details_from_zip(@va.zip_validator)).to eql(
+    expect(@va.data[0].details_from_zip).to eql(
       {
         "zip"=>"60607",
         "city"=>"Chicago",
@@ -81,11 +80,21 @@ describe VaDatasetCleanup do
     )
   end
 
-  it "should work on the whole set" do
-    expect(
-      @va.data.map {|d| d.details_from_zip(@va.zip_validator)}.length
-    ).to eql 939
+  it 'should extract the city' do
+    expect(@va.data[0].extracted_city).to eql "Chicago"
   end
+
+  it 'should fix va-specific weirdness' do
+    p @va.data[0].cleaned_address
+  end
+
+#StreetAddress::US.parse("1600 Pennsylvania Ave, Washington, DC, 20500")
+
+  #it "should work on the whole set" do
+    #expect(
+      #@va.data.map {|d| d.details_from_zip(@va.zip_validator)}.length
+    #).to eql 939
+  #end
 
 end
 
