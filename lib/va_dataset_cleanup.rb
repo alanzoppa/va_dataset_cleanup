@@ -186,23 +186,27 @@ class VaDatum < OpenStruct
   end
 
   def reconstructed_street_address
-    if best_strategy_street_address.nil?
-      #binding.pry
-      return "---failed: #{cleaned_name} #{cleaned_address}"
-      #return strategies
-    else
-      a = best_strategy_street_address
-      out = ""
-      out << "#{a.number} "
-      if a.prefix
-        out << "#{a.prefix} "
+    unless defined? @reconstructed_street_address
+      if best_strategy_street_address.nil?
+        #binding.pry
+        #return "---failed: #{cleaned_name} #{cleaned_address}"
+        #return strategies
+        @reconstructed_street_address = nil
+      else
+        a = best_strategy_street_address
+        out = ""
+        out << "#{a.number} "
+        if a.prefix
+          out << "#{a.prefix} "
+        end
+        out << "#{a.street} "
+        if a.street_type
+          out << "#{a.street_type} "
+        end
+        @reconstructed_street_address = out.strip
       end
-      out << "#{a.street} "
-      if a.street_type
-        out << "#{a.street_type} "
-      end
-      return out.strip
     end
+    @reconstructed_street_address
   end
 
   def verifiable_attrs
