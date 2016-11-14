@@ -5,6 +5,7 @@ require 'uri'
 require 'open-uri'
 require 'ostruct'
 require 'street_address'
+require 'lob'
 
 class ZipValidator
   attr_accessor :data
@@ -185,13 +186,13 @@ class VaDatum < OpenStruct
     @best_strategy_street_address
   end
 
-  def reconstructed_street_address
-    unless defined? @reconstructed_street_address
+  def complete_street_address
+    unless defined? @complete_street_address
       if best_strategy_street_address.nil?
         #binding.pry
         #return "---failed: #{cleaned_name} #{cleaned_address}"
         #return strategies
-        @reconstructed_street_address = nil
+        @complete_street_address = nil
       else
         a = best_strategy_street_address
         out = ""
@@ -203,26 +204,41 @@ class VaDatum < OpenStruct
         if a.street_type
           out << "#{a.street_type} "
         end
-        @reconstructed_street_address = out.strip
+        @complete_street_address = out.strip
       end
     end
-    @reconstructed_street_address
+    @complete_street_address
   end
 
-  def verifiable_attrs
-    return nil unless resolvable?
-    out = {}
-    [
-      ['zipcode', 'zip'],
-      ['city', 'city'],
-      ['state', 'state'],
-    ].each do |api_key, key|
-      out[api_key] = details_from_zip[key] unless details_from_zip[key].nil?
-    end
-    out['street'] = street_address_only
-    out['addressee'] = cleaned_name
-    out
+  def has_complete_street_address?
+    resolvable? && !complete_street_address.nil?
   end
+
+  def lob_api_hash
+    if has_complete_street_address?
+      return {
+        address_line1: complete_street_address,
+        address_city: extracted_city,
+        address_state: extracted_state,
+        address_zip: details_from_zip['zip']
+      }
+    end
+  end
+
+  #def verifiable_attrs
+    #return nil unless resolvable?
+    #out = {}
+    #[
+      #['zipcode', 'zip'],
+      #['city', 'city'],
+      #['state', 'state'],
+    #].each do |api_key, key|
+      #out[api_key] = details_from_zip[key] unless details_from_zip[key].nil?
+    #end
+    #out['street'] = street_address_only
+    #out['addressee'] = cleaned_name
+    #out
+  #end
 
 end
 
@@ -231,6 +247,8 @@ class VaDatasetCleanup
 
 
   def initialize(filepath, smartystreets_params)
+    @config = YAML.load(File.open('./config.yml', 'r').read)
+    @lob = Lob::Client.new(api_key: @config['lob_key'])
     @smartystreets_params = smartystreets_params
     @data = []
     CSV.foreach(filepath) do |row|
@@ -249,6 +267,10 @@ class VaDatasetCleanup
       @data << VaDatum.new(datum)
     end
     @zip_validator = $ZIP_VALIDATOR
+  end
+
+  def lob_response(obj)
+    @lob.addresses.verify(obj.lob_api_hash) if obj.has_complete_street_address?
   end
 
   def cleaned_data
