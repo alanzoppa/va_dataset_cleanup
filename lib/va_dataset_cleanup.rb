@@ -55,7 +55,7 @@ $ZIP_VALIDATOR = ZipValidator.new
 class VaDatum < OpenStruct
   def searchable
     unless defined? @searchable
-      @searchable = self['Condo Name (ID)'] + ' ' + self['Address']
+      @searchable = cleaned_name(true) + ' ' + self['Address']
     end
     @searchable
   end
@@ -69,12 +69,15 @@ class VaDatum < OpenStruct
     ]
   end
 
-  def cleaned_name
+  def cleaned_name(simple=false)
     name = self['Condo Name (ID)']
-    [
+    patterns = [
       / \(\d{5,7}\)/,
-      / \(#{details_from_zip['state_cd']}\d{3,5}\)/
-    ].each do |pattern|
+    ]
+    unless simple
+      patterns << / \(#{details_from_zip['state_cd']}\d{3,5}\)/
+    end
+    patterns.each do |pattern|
       name.gsub! pattern, ''
     end
     name
@@ -118,10 +121,9 @@ class VaDatum < OpenStruct
     if candidates.length == 0
       raise "No candidate zips found"
     elsif candidates.length > 1
-      state = extracted_state
       refined_candidates = candidates.map do |candidate|
         found = $ZIP_VALIDATOR.data.find do |entry|
-          entry['zip'] == candidate && entry['state_cd'] == state
+          entry['zip'] == candidate && entry['state_cd'] == extracted_state
         end
         unless found.nil?
           found['zip']
@@ -136,15 +138,27 @@ class VaDatum < OpenStruct
     candidates[0]
   end
 
-  def extracted_state
-    identified_states = $ZIP_VALIDATOR.states.map do |state|
-      searchable.scan /\b#{state}\b/
-    end.flatten
+  def _validate_extracted_state!(identified_states)
+    if identified_states.length > 1
+      identified_states.delete_if {|state| ['IN', 'OH', 'CT', 'DE', 'CO'].include? state }
+    end
     if identified_states.length > 1
       raise "Found too many states"
     elsif identified_states.length == 0
       raise "Found no states"
     end
+    identified_states
+  end
+
+  def _extract_states_raw(searchable)
+    identified_states = $ZIP_VALIDATOR.states.map do |state|
+      searchable.scan /\b#{state}\b/
+    end.flatten
+  end
+
+  def extracted_state
+    identified_states = _extract_states_raw(searchable)
+    identified_states = _validate_extracted_state!(identified_states)
     return identified_states[0]
   end
 
@@ -186,6 +200,19 @@ class VaDatum < OpenStruct
     @best_strategy_street_address
   end
 
+  def _build_street_address_string(a)
+    out = ""
+    out << "#{a.number} "
+    if a.prefix
+      out << "#{a.prefix} "
+    end
+    out << "#{a.street} "
+    if a.street_type
+      out << "#{a.street_type} "
+    end
+    return out.strip
+  end
+
   def complete_street_address
     unless defined? @complete_street_address
       if best_strategy_street_address.nil?
@@ -194,20 +221,43 @@ class VaDatum < OpenStruct
         #return strategies
         @complete_street_address = nil
       else
-        a = best_strategy_street_address
-        out = ""
-        out << "#{a.number} "
-        if a.prefix
-          out << "#{a.prefix} "
-        end
-        out << "#{a.street} "
-        if a.street_type
-          out << "#{a.street_type} "
-        end
-        @complete_street_address = out.strip
+        @complete_street_address = _build_street_address_string(
+          best_strategy_street_address
+        )
       end
     end
     @complete_street_address
+  end
+
+  def has_nested_addresses?
+    components = best_strategy_street_address.number.split('-')
+    all_are_numbers = components.all? {|c| c == c.to_i.to_s}
+    has_complete_street_address? && all_are_numbers && components.length == 2
+  end
+
+  def _left_padding(a,b) a[0..-b.length-1] end
+
+  def addresses
+    if has_nested_addresses?
+      a, b = best_strategy_street_address.number.split('-')
+      if a.length == b.length
+        low, high = [a,b].map(&:to_i)
+      else
+        left_padding = _left_padding(a,b)
+        low, high = a.to_i, "#{left_padding}#{b}".to_i
+      end
+      house_numbers = (low..high).step(2).to_a
+      house_numbers.map! do |number|
+        cpy = best_strategy_street_address.clone
+        cpy.number = number.to_s
+        lob_hash_copy = lob_api_hash.clone
+        lob_hash_copy[:address_line1] = _build_street_address_string(cpy)
+        lob_hash_copy
+      end
+      return house_numbers
+    else
+      return [lob_api_hash]
+    end
   end
 
   def has_complete_street_address?
@@ -246,10 +296,9 @@ class VaDatasetCleanup
   attr_accessor :data
 
 
-  def initialize(filepath, smartystreets_params)
+  def initialize(filepath)
     @config = YAML.load(File.open('./config.yml', 'r').read)
     @lob = Lob::Client.new(api_key: @config['lob_key'])
-    @smartystreets_params = smartystreets_params
     @data = []
     CSV.foreach(filepath) do |row|
       unless defined? @header
@@ -258,11 +307,12 @@ class VaDatasetCleanup
       end
       datum = @header.zip(row).to_h
       datum.delete(nil)
-      datum.keys.each do |key|
+      datum.keys.each_with_index do |key, i|
         datum[key].tr!(" ", " ")
         unless datum[key].nil?
           datum[key] = datum[key].strip
         end
+        datum['index'] = i
       end
       @data << VaDatum.new(datum)
     end
@@ -278,11 +328,6 @@ class VaDatasetCleanup
       @cleaned_data = @data.select {|d| d.resolvable?}
     end
     @cleaned_data
-  end
-
-  def smartystreets_url(query={})
-    uri = 'https://us-street.api.smartystreets.com/street-address?'
-    uri+URI.encode_www_form(@smartystreets_params.merge(query))
   end
 
 end

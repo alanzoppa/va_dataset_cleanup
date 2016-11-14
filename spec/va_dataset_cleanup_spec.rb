@@ -16,23 +16,17 @@ describe VaDatasetCleanup do
     @config = YAML.load(File.open('./config.yml', 'r').read)
     @va = VaDatasetCleanup.new(
       './va_sample.csv',
-      @config['smartystreets_params']
     )
   end
   it "has a version number" do
     expect(VaDatasetCleanup::VERSION).not_to be nil
   end
 
-  it "creates smartystreets urls" do
-    p @va.smartystreets_url
-  end
-
-  it "prints the data just becasuse" do
-    @va.data.each do |datum|
-      print datum.to_h.to_yaml
-      #print ['Condo Name (ID)', 'Address'].map {|k| [k, datum[k]]}.to_h.to_yaml
-    end
-  end
+  #it "prints the data just becasuse" do
+    #@va.data.each do |datum|
+      #print datum.to_h.to_yaml
+    #end
+  #end
 
   it "can find details of a zip" do
     expected = {
@@ -147,16 +141,14 @@ describe VaDatasetCleanup do
 
 
 
-  #it 'should figure out the street address' do
-    #@va.data.each do |datum|
-      #if datum.resolvable?
-        #puts datum.complete_street_address
-      #end
-    #end
-
-    #@va.data[-1].best_strategy_street_address
-
-  #end
+  it 'should figure out the street address' do
+    @va.data.each do |datum|
+      if datum.has_complete_street_address?
+        puts datum.complete_street_address
+        puts datum.addresses
+      end
+    end
+  end
 
 end
 
