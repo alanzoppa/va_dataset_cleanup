@@ -69,6 +69,19 @@ class VaDatum < OpenStruct
     ]
   end
 
+  def has_lob_data?
+    [
+      :lob_data_address_line1,
+      :lob_data_address_line2,
+      :lob_data_address_city,
+      :lob_data_address_state,
+      :lob_data_address_zip,
+      :lob_data_address_country,
+      :lob_data_object,
+      :lob_data_message
+    ].any? {|key| !send(key).nil? }
+  end
+
   def cleaned_name(simple=false)
     name = self['Condo Name (ID)']
     patterns = [
@@ -296,11 +309,12 @@ class VaDatasetCleanup
   attr_accessor :data
 
 
-  def initialize(filepath)
+  def initialize(filepath, limit = nil)
     @config = YAML.load(File.open('./config.yml', 'r').read)
     @lob = Lob::Client.new(api_key: @config['lob_key'])
     @data = []
     CSV.foreach(filepath) do |row|
+      break if !limit.nil? && data.length >= limit
       unless defined? @header
         @header = row
         next
@@ -319,8 +333,30 @@ class VaDatasetCleanup
     @zip_validator = $ZIP_VALIDATOR
   end
 
+  def annotate_lob_data!
+    @data.each do |datum|
+      if r = lob_response(datum)
+        r['address'].each do |key, value|
+          datum["lob_data_#{key}"] = value
+        end
+        datum.lob_data_message = r['message']
+      end
+    end
+  end
+
+  def headers
+    unless defined? @headers
+      @headers = @data.map {|d| d.to_h.keys.map(&:to_s)}.flatten.uniq
+    end
+    @headers
+  end 
+
   def lob_response(obj)
-    @lob.addresses.verify(obj.lob_api_hash) if obj.has_complete_street_address?
+    begin
+      @lob.addresses.verify(obj.lob_api_hash) if obj.has_complete_street_address?
+    rescue Lob::InvalidRequestError
+      nil
+    end
   end
 
   def cleaned_data

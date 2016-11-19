@@ -1,0 +1,1594 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1000+W+WASHINGTON+Blvd&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '92'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:39 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '149'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '149'
+      X-Rate-Limit-Reset:
+      - '1479598904'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22Pz2vCMBiG7/4VLzk56EbrQMGbP0ALogfdPI60/TojNinJ
+        FzYn/u9LuxU8NKfkfZ58b3IbICwhi8KSc2KKWxs8hh8XpSkJSCRxHOOI42y/
+        Trerw26L+eZ9KaL+K6PmSh/MFV8btlini9lq16c4lkyNk2768I+qGziOx/Hk
+        eZS8TnprjNds26a3/aNgsjPl3OTdt1t2/1NEFRL52bYvqZT+wvj3pjicqDvg
+        ajxIM1kq8CUdytBXIPOMyliC0qWxlWRlNJSDJiqCOHQ+PyHYUkPW0nIVRkRw
+        XjFFMBaZ+Yb2VUb2CWwQBgQ/bCRcTbkqVd494EUM7r+g+pUUvwEAAA==
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:39 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1001+MADISON&address_city=Chicago&address_state=IL&address_zip=60602
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '82'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:39 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '148'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '148'
+      X-Rate-Limit-Reset:
+      - '1479598903'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PQUvDMBiG7/sVLzkpVEl32GC3sYEW1B068Shp+tVF1qQk
+        X9A59t9Nq4UdmlPyPg/f++U8QzpC1bWnEMQK5yG4Dt+PxlKekMilzPGG5/W2
+        KHcvKPcim7bnvT0FteFTzzaPxWb9sJtSAium3imepvCP6Xq4kAu5vJvLpZys
+        cdGyH5pey2vBVZ+kuc/HHw/s8qeINiXqY2jfUqPikfHvrbA/0PjAyUWQZfJU
+        40sFNKmvRhUZrfMEYxvnW8XGWZgAS1Qn8SZEfUCylYXqlOc2jcgQomHK4Dwq
+        9w0b24r8LdghDUh+uiiEjrRpjB4XuBezyy+semDVugEAAA==
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:39 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=101+N+Pne&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '79'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:40 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '147'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '147'
+      X-Rate-Limit-Reset:
+      - '1479598904'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpdSiovwiJSuFajAXLJSbWlycmJ4KFFRKTEkpAvIU
+        8vJLFNLyS/NSlHQQ6opLEktKi+OT81NAak0MTMBStVy1AHGTLz9bAAAA
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:40 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1015+W+JACKSON+Blvd&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '89'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:41 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '146'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '146'
+      X-Rate-Limit-Reset:
+      - '1479598904'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PwU7DMBBE7/2KkU8gBZQUUURvJZWgUNFDKRyRE2+oUWNH
+        9lpQqv47TiBSD/HJnve0sz6MEI+QSjnyXkxx6ILT8H2nDWURiSzNrvGGx1n+
+        tF494275OhfJsD9u/SFYat63LH9Y5LP71ZDiWTK1zmI5hH9008JJOklvLsa3
+        2dVgjQ2GXde0WZ8Ktvikktu8/3PHjn+KqGMiP7r2OVUy7Bj/3hQvW+of2NsA
+        MkyOFL6kRxX7FIrAqK0jaFNZV0vW1kB7GCIVxTMfyi2iLQ1kIx3XcUQCHzRT
+        AutQ2G+YUBfkzsEWcUD040XCN1TqSpf9ApdidPwFNNNaT7wBAAA=
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:41 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1020+N+MOZART+St&address_city=Chicago&address_state=IL&address_zip=60622
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '86'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:41 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '145'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '145'
+      X-Rate-Limit-Reset:
+      - '1479598903'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PUUvDMBSF3/crDnmaUEdb2IS9jQlzoA5cffFF0ubWRdak
+        JDfoHPvvptXCHpqn5Hwf99ycJ4hHSKUceS+WOPfBdfh+1IayiESW5ime8bR7
+        W70U2BciGZfzTh6DleZTx9YP2/VqsxtTPEumztk+juEf3XZwkS7y/Dab381H
+        a2ww7Pqm1/21YMtPqrjLhw/37PKniCYm8qNvv6dahiPj31uiONDwwMkGkGFy
+        pPAlPerYp1AGRmMdQZvaukaytgbawxCpKE59qA6ItjSQrXTcxBEJfNBMCaxD
+        ab9hQlOSuwFbxAHRjxcJ31Kla10NC8zE5PILf2yZdrkBAAA=
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:41 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1025+N.+WOOD&address_city=Chicago&address_state=IL&address_zip=60622
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '82'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:42 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '144'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '144'
+      X-Rate-Limit-Reset:
+      - '1479598904'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PUUvDMBSF3/crDnlSqNIVrbC3sYEOxD5s4qOk7a2LrElJ
+        btA59t9NqoU9JE/J+T7uuTnNEI6QbWvJObHAaQwuw/eD0jQPSMzz4h4veKuq
+        NbY7kaXVIqop2Cg+RrZ62qyWj1VKcSyZorN5TuEfNURY5mVR3DzclXmyxnjN
+        dmx63V4Kpv6khmM+fXdk5z9F9CGRH2P7mjrpD4x/b4HdnqYHjsaDNJOlFl/S
+        oQt9LWrP6I0lKN0Z20tWRkM5aKI2iFfON3sEW2rIQVruw4gMziumDMaiNt/Q
+        vq/JXoMNwoDgh4uEG6hRnWqmBW7F7PwLiiK6GLcBAAA=
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:42 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1045+W+ALTGELD&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '84'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:43 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '143'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '143'
+      X-Rate-Limit-Reset:
+      - '1479598903'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpcSUlKLU4mIlK4VqsACyYHxOZl6qIVBKydDAxFQh
+        XMHRJ8Td1cdFIThESQe7aiOQamySyZkllSA5Zw9PZ0d3f2xKiksSS1JBajx9
+        sElXZRaAJM0MzAxNdI2MDCywWpNfmldSBLYpNBhZQX5SVmpyCUgc5mOwXC1X
+        LQAj4F0ACQEAAA==
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:43 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1047+N.+HONORE&address_city=Chicago&address_state=IL&address_zip=60622
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '84'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:43 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '142'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '142'
+      X-Rate-Limit-Reset:
+      - '1479598903'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpcSUlKLU4mIlK4VqsACyYHxOZl6qIVBKydDAxFzB
+        T8HD388/yFUhOERJB7tiI5BibJLJmSWVIDlnD09nR3d/bEqKSxJLUkFqPH2w
+        SVdlFoAkzQzMjIx0jc0NLbBak1+aV1IEtik0GFlBflJWanIJSBzmYbBcLVct
+        AAgQ45YIAQAA
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:43 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=105+N+Pne&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '79'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:44 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '149'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '149'
+      X-Rate-Limit-Reset:
+      - '1479598909'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpdSiovwiJSuFajAXLJSbWlycmJ4KFFRKTEkpAvIU
+        8vJLFNLyS/NSlHQQ6opLEktKi+OT81NAak0MTMBStVy1AHGTLz9bAAAA
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:44 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1050+W+DIVERSEY+Pkwy&address_city=Chicago&address_state=IL&address_zip=60614
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '90'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:45 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '148'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '148'
+      X-Rate-Limit-Reset:
+      - '1479598908'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpcSUlKLU4mIlK4VqsACyYHxOZl6qIVBKydDA1EAh
+        XMHFM8w1KNg1UiHAOzxSSQe7BiOQBmySyZkllSA5Zw9PZ0d3f2xKiksSS1JB
+        ajx9sElXZRaAJM0MzAxNdA2NDc2xWpNfmldSBLYpNBhZQX5SVmpyCUgc5mmw
+        XC1XLQBh1UgHDAEAAA==
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:45 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1058+1060&address_city=Chicago&address_state=IL&address_zip=60640
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '79'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:45 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '147'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '147'
+      X-Rate-Limit-Reset:
+      - '1479598909'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpdSiovwiJSuFajAXLJSbWlycmJ4KFFRKTEkpAvIU
+        8vJLFNLyS/NSlHQQ6opLEktKi+OT81NAak0MTMBStVy1AHGTLz9bAAAA
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:45 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=111+N+Pne&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '79'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:46 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '146'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '146'
+      X-Rate-Limit-Reset:
+      - '1479598909'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpdSiovwiJSuFajAXLJSbWlycmJ4KFFRKTEkpAvIU
+        8vJLFNLyS/NSlHQQ6opLEktKi+OT81NAak0MTMBStVy1AHGTLz9bAAAA
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:46 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1111+W+PRATT&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '82'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:46 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '145'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '145'
+      X-Rate-Limit-Reset:
+      - '1479598909'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpcSUlKLU4mIlK4VqsACyYHxOZl6qIVBKyRAIFMIV
+        AoIcQ0IUnHzCXJR0sKs2AqnGJpmcWVIJknP28HR2dPfHpqS4JLEkFaTG0web
+        dFVmAUjSzMDMyEzXxMTAGKs1+aV5JUVgm0KDkRXkJ2WlJpeAxGE+BsvVctUC
+        AMF4T0EJAQAA
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:47 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1115+S+PLYMOUTH+Ct&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '88'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:47 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '144'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '144'
+      X-Rate-Limit-Reset:
+      - '1479598909'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PsWrDMBRF93zFRVMLbokDyZCtONAEUlKIM3Qqsv3cqMSS
+        kZ5o05B/77NbQwZrENI9h3elywSylK4qTyGoJS59cBu+n4ylVJBK03SOPV63
+        by+7Q75GlqtkXJ91+hgsDZ87lq032dPzbkwJrJk6Z7Mdwz+m7eBiupjOH2ay
+        j9a4aNn3TYf9reCKTyq5y4cv9+z6p6hGEv3Rt6+o1vHE+PeWyI80XHB2EWSZ
+        PFX40gG19FUoIqNxnmBs7Xyj2TgLE2CJKhHvQiyPEFtb6FZ7bmREghANUwLn
+        Ubhv2NgU5O/BDjJAfDlohJZKU5tyeMCjmlx/ATIs2UC7AQAA
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:47 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1120+ARMITAGE&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '83'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:48 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '143'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '143'
+      X-Rate-Limit-Reset:
+      - '1479598909'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PUUvDMBSF3/crDnlSqLKMMWFvZY5ZUASd+ihpe+sia1KS
+        G3SO/XfTamEPyVNyvo97bo4TxCNUXTvyXixxHILz8H2vDcmIhJSzKd6QPz0U
+        23yzRv66Flnan/V+ClaaDz1b3RWrfPOYUjwrpt4p7lP4R3c9XEwXcn41lzcy
+        WWODYTc0vTyfC7b8pIr7fPzzwE5/imhjoj6G9ltqVNgz/r0ltjsaHzjYADJM
+        jmp8KY8m9tUoA6O1jqBNY12rWFsD7WGI6ihe+FDtEG1loDrluI0jMvigmTJY
+        h9J+w4S2JHcJtogDoh8vCr6jSje6Ghe4FpPTL8vQV0m8AQAA
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:48 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1122-1124+W+DIVERSEY&address_city=Chicago&address_state=IL&address_zip=60614
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '90'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:48 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '142'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '142'
+      X-Rate-Limit-Reset:
+      - '1479598909'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpcSUlKLU4mIlK4VqsACyYHxOZl6qIVBKydDQyEgh
+        XMHFM8w1KNg1UiHAOzxSQVkBKGyipINdnxFIHzbJ5MySSpCcs4ens6O7PzYl
+        xSWJJakgNZ4+2KSrMgtAkmYGZoYmuobGhpZYrckvzSspAtsUGoysID8pKzW5
+        BCQO8ztYrparFgCXQZ3dEwEAAA==
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:49 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1130-1134+W+DIVERSEY&address_city=Chicago&address_state=IL&address_zip=60614
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '90'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:49 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '149'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '149'
+      X-Rate-Limit-Reset:
+      - '1479598914'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PUUvDMBSF3/crDvFFoUprx8C9yTa0KCjOOfYkaXvrImtS
+        kht0jv1302phD81Tcr4v9ySHEcISsiwtOSemOHTBafi+U5qSgESSpDHWmGdv
+        i5flYoPnh/UGZwjxWETD967be0OwULxv2ew+m93ePQ0pjiVT62SPQ/hHNS2c
+        xJNkfHmTpvFgjfGabde0Wp4KJv+kgtu8/3vHjn+KqEMiP7r2OVXS7xj/3hSv
+        W+oP2BsP0kyWSnxJhyr0lcg9ozaWoHRlbC1ZGQ3loInKIJ47X2wRbKkhG2m5
+        DiMiOK+YIhiL3HxD+zonewE2CAOCHzYSrqFCVaroH3AlRsdf1FHYqsQBAAA=
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:49 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1131+W+ADDISON+St&address_city=Chicago&address_state=IL&address_zip=60613
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '87'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:50 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '148'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '148'
+      X-Rate-Limit-Reset:
+      - '1479598914'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpcSUlKLU4mIlK4VqsACyYHxOZl6qIVBKydDQ2FAh
+        XMHRxcUz2N9PIThESQe7aiOQamySyZkllSA5Zw9PZ0d3f2xKiksSS1JBajx9
+        sElXZRaAJM0MzAyNdY0tDEyxWpNfmldSBLYpNBhZQX5SVmpyCUgc5mOwXC1X
+        LQBLaIG2CQEAAA==
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:50 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=120+W+CHICAGO&address_city=Oak+Park&address_state=IL&address_zip=60302
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '84'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:51 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '147'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '147'
+      X-Rate-Limit-Reset:
+      - '1479598914'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PXUvDMBSG7/crXnKlUKWrQ2R3ZYqOCRM/ditpeuoiS1KS
+        E3SO/XfTamEXzVXyPg/nPTlMkI6Qde0pBDHHoQ9Ow/edtjRNSEyLHIuH5aK8
+        X6Pc3Ils3C06dwwqzfuOrcsVnsrn1ZgTWDJ10vJxDP/otoPX+VVeXBSz2c1o
+        j4uWfV/19nIquOqTFHf58OGeHf8UYVIiP/r2W2pk3DH+vTletzQ8sHcRZJk8
+        1fiSAU3qq1FFhnGeoG3jvJGsnYUOsER1Es9CVFskW1rIVno2aUSGEDVTBudR
+        uW/YaCry52CHNCD56SIRWlK60WpY4FJMjr8GleFruQEAAA==
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:51 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1212+N+LASALLE&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '84'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:51 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '146'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '146'
+      X-Rate-Limit-Reset:
+      - '1479598914'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PUUvDMBSF3/crDnmaUEfbhyl7K5vooCg4fZY0vXUZa1KS
+        G3SO/XfTamEPzVNyvo97bs4zxCNkXTvyXqxwHoLr8OOoDWURiSzPcjyjLLAr
+        yvIBm1eRTOt5r09BpfnUs/XTdl08vkwpniVT72zLKfyjux4u02WW3t6n+d1k
+        jQ2G3dD0vrsWbHUgxX0+fnlglz9FtDGRn0P7hhoZjox/b4W3PY0PnGwAGSZH
+        Nb6kRxP7alSB0VpH0KaxrpWsrYH2MER1FOc+qD2iLQ1kJx23cUQCHzRTAutQ
+        2W+Y0FbkbsAWcUD040XCd6R0o9W4wELMLr8jRjIbuwEAAA==
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:51 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1216-1218+W+SHERWIN&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '89'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:52 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '145'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '145'
+      X-Rate-Limit-Reset:
+      - '1479598914'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PQUvDMBiG7/sVL/GiUMX2UHW3MYcriILT7Shp+tVF1qQk
+        X9A59t9Nq4UdmlPyPk++NzlMEJeQVeXIezHFoQ9Ow/edNpRGJNIszbHBarl4
+        2RRPmK0XOEMMb0Uyfivrbo1BpXnfsfmymM8enscUz5Kpc4rHMfyj2w7m13mW
+        X2bZzd1ojQ2GXd/0tjoVbPlJirt8+HnPjn+KaGIiP/r2e6pl2DH+vSletzQc
+        sLcBZJgcVfiSHnXsq1AGRmMdQZvaukaytgbawxBVUTz3QW0RbWkgW+m4iSMS
+        +KCZEliH0n7DhKYkdwG2iAOiHzcSviWla62GB1yJyfEXJ8IJQcIBAAA=
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:52 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1226+N.+NOBLE&address_city=Chicago&address_state=IL&address_zip=60642
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '83'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:52 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '144'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '144'
+      X-Rate-Limit-Reset:
+      - '1479598914'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpcSUlKLU4mIlK4VqsACyYHxOZl6qIVBKydDIyEzB
+        T8HP38nHVSE4REkHu1ojkFpsksmZJZUgOWcPT2dHd39sSopLEktSQWo8fbBJ
+        V2UWgCTNDMxMjHSNjY3MsVqTX5pXUgS2KTQYWUF+UlZqcglIHOZfsFwtVy0A
+        QzMuDwcBAAA=
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:53 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1242+W+JACKSON+Blvd&address_city=Chicago&address_state=IL&address_zip=60607
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '89'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:53 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '143'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '143'
+      X-Rate-Limit-Reset:
+      - '1479598914'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PTU8CMRRF9/yKm640GQxMDAI7HBJFiSzwY2k6nTdSw7ST
+        9jWKhP9uZ3QSFtNVe8/Ju6/HAeIRsigceS/mOLbBefi+14bGEYlxep3iDQ+L
+        7HG7ecLt+nUpkn4/bfw+qDQfGpbdr7LF3aZP8SyZGme17sM/um7gZDQZ3QzT
+        2XTWW2ODYdc2vWzPBZt/kuIm7/7cstOfIqqYyI+2fUmlDHvGvzfH8466Bw42
+        gAyTowJf0qOMfQXywKisI2hTWldJ1tZAexiiIooXPqgdoi0NZC0dV3FEAh80
+        UwLrkNtvmFDl5C7BFnFA9ONFwtekdKlVt8CVGJx+AaSL0Kq8AQAA
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:53 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1244+N+WOOD&address_city=Chicago&address_state=IL&address_zip=60622
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '81'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:54 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '142'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '142'
+      X-Rate-Limit-Reset:
+      - '1479598914'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpcSUlKLU4mIlK4VqsACyYHxOZl6qIVBKydDIxETB
+        TyHc399FIThESQe7UiOQUmySyZkllSA5Zw9PZ0d3f2xKiksSS1JBajx9sElX
+        ZRaAJM0MzIyMdI2NTA2wWpNfmldSBLYpNBhZQX5SVmpyCUgc5l2wXC1XLQDm
+        i9kVBgEAAA==
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:54 GMT
+- request:
+    method: post
+    uri: https://api.lob.com/v1/verify
+    body:
+      encoding: UTF-8
+      string: address_line1=1245+W+OHIO+St&address_city=Chicago&address_state=IL&address_zip=60622
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Lob/v1 RubyBindings/3.0.0
+      Lob-Version:
+      - ''
+      Content-Length:
+      - '84'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.lob.com
+      Authorization:
+      - Basic bGl2ZV9hYzNjMjExYjI3OGVkODkyNGE4NGIxZmIyMWU0NzM5Y2JlMDo=
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 19 Nov 2016 23:41:55 GMT
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '149'
+      Rate-Limit-Window:
+      - '5'
+      Vary:
+      - origin,accept-encoding
+      X-Rate-Limit-Limit:
+      - '150'
+      X-Rate-Limit-Remaining:
+      - '149'
+      X-Rate-Limit-Reset:
+      - '1479598919'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6vmUgACpcSUlKLU4mIlK4VqsACyYHxOZl6qIVBKydDIxFQh
+        XMHfw9NfIThESQe7UiOQUmySyZkllSA5Zw9PZ0d3f2xKiksSS1JBajx9sElX
+        ZRaAJM0MzEyMdIHYDKs1+aV5JUVgm0KDkRXkJ2WlJpeAxGHeBcvVctUCAJUJ
+        ue0GAQAA
+    http_version: 
+  recorded_at: Sat, 19 Nov 2016 23:41:55 GMT
+recorded_with: VCR 3.0.3

@@ -16,6 +16,7 @@ describe VaDatasetCleanup do
     @config = YAML.load(File.open('./config.yml', 'r').read)
     @va = VaDatasetCleanup.new(
       './va_sample.csv',
+      25
     )
   end
   it "has a version number" do
@@ -150,18 +151,46 @@ describe VaDatasetCleanup do
       actual = @va.lob_response(@canned_datum)
       expect(expected).to eql actual
     end
-  end
 
 
+    it 'should figure out the street address' do
+      @va.annotate_lob_data!
 
-  #it 'should figure out the street address' do
-    #@va.data.each do |datum|
-      #if datum.has_complete_street_address?
-        #puts datum.complete_street_address
-        #puts datum.addresses
+      expect(@va.headers).to eql [
+        "Condo Name (ID)",
+       "Address",
+       "Status",
+       "Last Update",
+       "Request Received Date",
+       "Review Completion Date",
+       "id",
+       "detail_uri",
+       "index",
+       "lob_data_address_line1",
+       "lob_data_address_line2",
+       "lob_data_address_city",
+       "lob_data_address_state",
+       "lob_data_address_zip",
+       "lob_data_address_country",
+       "lob_data_object",
+       "lob_data_message"
+      ]
+
+      #binding.pry
+
+      #@va.data.each do |datum|
+        #if datum.has_complete_street_address?
+          #if datum.has_lob_data?
+            #binding.pry
+            #puts datum.lob_data['address']
+            #puts datum.lob_data['message']
+          #end
+        #end
       #end
-    #end
-  #end
+      #
+    end
+
+  end
 
 end
 
