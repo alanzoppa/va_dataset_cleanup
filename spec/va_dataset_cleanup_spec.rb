@@ -121,6 +121,19 @@ describe VaDatasetCleanup do
   end
 
   context "Lob API", :vcr do
+    before :all do
+      @canned_datum = VaDatum.new(
+          'Condo Name (ID)' => "1000 WEST WASHINGTON LOFTS",
+          'Address' => "1000 W WASHINGTON BLVD CHICAGO IL 60607 COOK",
+          'Status' => "Accepted Without Conditions",
+          'Last Update' => "Unavailable",
+          'Request Received Date' => "01/08/2015",
+          'Review Completion Date' => "01/26/2015",
+          'id' => "529550",
+          'index' => 6
+        )
+    end
+
     it 'should get some data from Lob' do
       expected = {
         "address" => {
@@ -134,21 +147,21 @@ describe VaDatasetCleanup do
         },
        "message" => "Default address: The address you entered was found but more information is needed (such as an apartment, suite, or box number) to match to a specific address."
       }
-      actual = @va.lob_response(@va.data[0])
+      actual = @va.lob_response(@canned_datum)
       expect(expected).to eql actual
     end
   end
 
 
 
-  it 'should figure out the street address' do
-    @va.data.each do |datum|
-      if datum.has_complete_street_address?
-        puts datum.complete_street_address
-        puts datum.addresses
-      end
-    end
-  end
+  #it 'should figure out the street address' do
+    #@va.data.each do |datum|
+      #if datum.has_complete_street_address?
+        #puts datum.complete_street_address
+        #puts datum.addresses
+      #end
+    #end
+  #end
 
 end
 
