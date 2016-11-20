@@ -1,11 +1,11 @@
 require "va_dataset_cleanup/version"
 require 'csv'
-require 'google_places'
 require 'uri'
 require 'open-uri'
 require 'ostruct'
 require 'street_address'
 require 'lob'
+require 'yaml'
 
 class ZipValidator
   attr_accessor :data
@@ -350,6 +350,16 @@ class VaDatasetCleanup
     end
     @headers
   end 
+
+  def to_csv
+    csv_string = CSV.generate do |csv|
+      csv << headers
+      @data.each do |detail|
+        csv << headers.map {|header| detail[header]}
+      end
+    end
+    return csv_string
+  end
 
   def lob_response(obj)
     begin

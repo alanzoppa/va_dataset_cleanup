@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "va_dataset_cleanup"
+
+#binding.pry
+
+
+va = VaDatasetCleanup.new(ENV['VA_DATA_INPUT'])
+va.annotate_lob_data!
+print va.to_csv
+
+
+#va = VaDatasetGenerator.new
+#va.gather_data
